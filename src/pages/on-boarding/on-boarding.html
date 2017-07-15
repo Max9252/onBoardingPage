@@ -1,0 +1,61 @@
+<ion-content class="no-scroll">
+
+  <div class=" row logo">
+    <ion-img src="assets/icon/app_icon.png" [@moveImage]='stateImage'></ion-img>
+  </div>
+
+  <div class="page-one" text-center [@moveMessage]='stateMessage'>
+    <h2 align="center">Bienvenido a ParkeApp</h2>
+    <p align="center">Donde podrás encontrar el parqueadero ideal para ti según tu necesidad</p>
+
+    <button ion-button style="margin-left:auto;
+    margin-right: auto;background-color:#ff005a;" (click)="empezar()" large>Empecemos</button>
+  </div>
+
+
+  <ion-slides [pager]="showPager" (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()" [@moveSlides]='stateSlide' [hidden]="myVar">
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/whitebg.svg') no-repeat" >
+        <ion-img src="assets/freemium.png" [@animateSlide]='state' (@animateSlide.done)="animationDone()"></ion-img>
+      </div>
+      <div [@animateSlide]='state' >
+        <h2>Parqueadero FREEMIUM</h2>
+        <p>Ubicación del parqueadero y sin ningún costo adicional</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/whitebg.svg') no-repeat">
+        <ion-img src="assets/privados.png" [@animateSlide]='state' (@animateSlide.done)="animationDone()"></ion-img>
+      </div>
+      <div [@animateSlide]='state'>
+        <h2>Parqueadero Privado</h2>
+        <p>Reservas mensuales, geolocalización y varios métodos de pagos</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/whitebg.svg') no-repeat">
+      <ion-img src="assets/premium.png" [@animateSlide]='state' (@animateSlide.done)="animationDone()"></ion-img>
+      </div>
+      <div [@animateSlide]='state'>
+        <h2>Parqueadero PREMIUM</h2>
+        <p>Reservas por horas, disponibilidad en tiempo real, geolocalización y pago con tarjeta de crédito</p>
+      </div>
+
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/whitebg.svg') no-repeat">
+      </div>
+      <div [@animateSlide]='state'>
+        <h2>Slide donde se escoge (Falta definir)</h2>
+        <p>Escoge</p>
+      </div>
+    </ion-slide>
+
+
+  </ion-slides>
+  <button (click)="skip()" id="skip" [@moveSlides]='stateSlide'>{{ skipMsg }}</button>
+</ion-content>

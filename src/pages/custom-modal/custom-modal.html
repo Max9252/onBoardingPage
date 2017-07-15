@@ -1,0 +1,190 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      Reservación
+    </ion-card-title>
+    <small style="color: white">Paso {{this.slides.getActiveIndex() + 1}} de 4</small>
+    <button ion-button (click)="this.viewCtrl.dismiss()" clear color="light" class="close-button"
+    icon-only>
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-card-header>
+  <ion-card-content padding>
+    <ion-slides>
+      <!--Slide 1-->
+      <ion-slide>
+        <ion-list>
+          <ion-list-header>
+            Datos de usuario
+          </ion-list-header>
+          <ion-item>
+            <ion-icon name="person" item-start class="form-icon"></ion-icon>
+            <ion-input type="text" placeholder="Nombre"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="call" item-start class="form-icon"></ion-icon>
+            <ion-input type="number" placeholder="Celular"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="finger-print" item-start class="form-icon"></ion-icon>
+            <ion-input type="number" placeholder="No. de documento"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+      
+      <!--Slide 2-->
+      <ion-slide>
+        <ion-list>
+          <ion-list-header>
+            Datos del vehículo
+          </ion-list-header>
+          <ion-item>
+            <ion-icon name="car" item-start class="form-icon"></ion-icon>
+            <ion-input type="text" [(ngModel)]="vehicleID" placeholder="Placa vehículo" 
+            [value]="vehicleID | uppercase"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="speedometer" item-start class="form-icon"></ion-icon>
+            <ion-select type="Text" placeholder="Tipo de vehìculo" class="select-input">
+              <ion-option value="Automovil">Automóvil</ion-option>
+              <ion-option value="Motocicleta">Motocicleta</ion-option>
+              <ion-option value="Bicicleta">Bicicleta</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="build" item-start class="form-icon"></ion-icon>
+            <ion-input type="text" placeholder="Marca vehículo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="color-fill" item-start class="form-icon"></ion-icon>
+            <ion-input type="text" placeholder="Color vehículo"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+
+      <!--Slide 3-->
+      <ion-slide>
+        <ion-list>
+          <ion-list-header>
+            Datos de reserva
+          </ion-list-header>
+          <ion-item>
+            <ion-icon material-icons name="today" item-start class="form-icon"></ion-icon>
+            <ion-datetime displayFormat="DD-MMMM-YYYY" pickerFormat="MMMM/DD/YYYY" 
+              placeholder="Reservar desde" doneText="Aceptar" cancelText="Cancelar"
+              min="2017-07-03" max="2018-07-03">
+            </ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-icon material-icons name="date_range" item-start class="form-icon"></ion-icon>
+            <ion-select type="number" placeholder="¿Cuántos meses?" 
+            class="select-input">
+              <ion-option *ngFor="let month of monthsList; let isFirst = first;" value="{{month}}">
+                {{month}} {{isFirst ? 'Mes' : 'Meses'}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+
+      <!--Slide 4-->
+      <ion-slide>
+        <ion-list>
+          <ion-list-header>
+            Datos de pago
+          </ion-list-header>
+          <ion-item>
+            <ion-icon name="switch" item-start class="form-icon"></ion-icon>
+            <ion-select type="text" placeholder="Método de pago" class="select-input"
+            [(ngModel)]="payMethod">
+              <ion-option value="credit">Tarjeta de crédito</ion-option>
+              <ion-option value="pse">PSE</ion-option>
+              <ion-option value="cash">Depósito bancario</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-list [ngSwitch]="payMethod">
+            <!--Credit card inputs-->
+            <div *ngSwitchCase="'credit'">
+              <ion-item>
+                <ion-icon name="person" item-start class="form-icon"></ion-icon>
+                <ion-input type="text" placeholder="Nombres y apellidos"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="card" item-start class="form-icon"></ion-icon>
+                <ion-input type="number" placeholder="Número de tarjeta"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="calendar" item-start class="form-icon"></ion-icon>
+                <ion-datetime displayFormat="MM-YYYY" pickerFormat="MM/YYYY" class="select-input"
+                placeholder="Fecha de expiración" doneText="Aceptar" cancelText="Cancelar"
+                min="2017-07-01" max="2050-12-01"></ion-datetime>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="lock" item-start class="form-icon"></ion-icon>
+                <ion-input type="text" placeholder="Código de seguridad" pattern=".{5,10}"
+                ></ion-input>
+              </ion-item>
+            </div>
+            <!--PSE inputs-->
+            <div *ngSwitchCase="'pse'">
+              <ion-item>
+                <ion-icon material-icons name="account_balance" item-start class="form-icon"></ion-icon>
+                <ion-select name="text" placeholder="Entidad bancaria" class="select-input">
+                  <ion-option>Bancolombia</ion-option>
+                  <ion-option>AV Villas</ion-option>
+                  <ion-option>Banco de Bogotá</ion-option>
+                  <ion-option>BBVA</ion-option>
+                  <ion-option>Davivienda</ion-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="person" item-start class="form-icon"></ion-icon>
+                <ion-input type="text" placeholder="Nombres y apellidos"></ion-input>
+              </ion-item>
+              <p padding>
+                <strong>Importante: </strong>Debes ingresar tus nombres y apellidos completos, deben ser los mismos que están
+                asociados a la cuenta bancaria con la cual realizarás tu pago
+              </p>
+            </div>
+            <!--Cash inputs-->
+            <div *ngSwitchCase="'cash'" padding>
+              <h3><strong>Número de convenio</strong></h3>
+              <p>Con este número puedes realizar el deposito correspondiente al monto que debes pagar
+                por la reserva que estás solicitando.
+              </p>
+              <br>
+              <p>Número: <strong>170089</strong></p>
+            </div>
+          </ion-list>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+  </ion-card-content>
+  <div class="footer">
+    <button ion-button full outline icon-right class="footer-button" 
+    *ngIf="this.slides.getActiveIndex() === 0" (click)="this.slides.slideNext()">
+      Siguiente
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+    <ion-row *ngIf="this.slides.getActiveIndex() > 0">
+      <ion-col>
+        <button ion-button full outline icon-left class="footer-button" 
+        (click)="this.slides.slidePrev()">
+          <ion-icon name="arrow-back"></ion-icon>
+          Anterior
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button full outline icon-right class="footer-button"
+        (click)="this.slides.slideNext()" *ngIf="this.slides.getActiveIndex() !== 3">
+          Siguiente
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+        <button ion-button full class="footer-button" color="primary"
+        (click)="this.slides.slideNext()" *ngIf="this.slides.getActiveIndex() === 3">
+          Reservar
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-card>

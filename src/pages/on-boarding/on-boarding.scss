@@ -1,0 +1,114 @@
+.logo {
+  ion-img {
+    margin-top: 0 !important;
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 0 auto;
+    z-index: 100;
+    position: relative;
+  }
+
+  ion-img.img-loaded img {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    z-index: 100;
+    position: relative;
+  }
+}
+
+.page-one {
+  p {
+    font-size: 15px;
+    margin-bottom: 10% !important;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 5% !important;
+    margin-top: 80% !important;
+  }
+}
+
+[noScroll] {
+  overflow: hidden;
+}
+
+.no-scroll .scroll-content{
+      overflow: hidden !important;
+ }
+ion-img {
+  margin-top: 13% !important;
+  width: 256px;
+  height: 256px;
+  display: block;
+  margin: 0 auto;
+  z-index: 100;
+  background: transparent;
+}
+
+ion-img.img-loaded img {
+  width: 256px;
+  height: 256px;
+  margin: 0 auto;
+  z-index: 100;
+  position: relative;
+}
+
+ion-slide {
+  overflow-y: hidden !important;
+}
+ion-slides{
+  overflow-y: hidden !important;
+
+}
+
+.diag {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  height: 66%;
+}
+
+ion-icon {
+  margin-top: 40%;
+  font-size: 7em;
+}
+
+h2 {
+  margin-top: 60% !important;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+p {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  font-size: 0.9em;
+}
+
+.swiper-pagination-bullet-active {
+  background: white;
+}
+
+.swiper-pagination {
+  bottom: 20% !important;
+}
+
+#skip {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  background: none !important;
+  text-align: center;
+  cursor: pointer;
+  z-index: 5;
+}
+
+button{
+  color: white !important;
+
+}

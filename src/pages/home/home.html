@@ -1,0 +1,91 @@
+<ion-content>
+ <ion-slides pager (ionSlideDidChange)="slideDidChange()">
+
+    <ion-slide style="background: #F44336">
+      <div class="spacer"></div>
+      <img src="assets/marker.svg" [@bounceInDown]>
+      <div class="spacer"></div>
+      <ion-row>
+        <ion-col col-3 [@slideInLeft]>
+          <img src="assets/gris120x120.png">
+        </ion-col>
+        <ion-col col-9 class="paddingCol" [@slideInRight]>
+          <p><small><strong>Parqueaderos públicos freemium</strong>, solo se encuentra disponible la ubicación del parqueadero.</small></p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3 [@slideInLeft]> 
+          <img src="assets/azul120x120.png">
+        </ion-col>
+        <ion-col col-9 class="paddingCol" [@slideInRight]>
+          <p><small><strong>Parqueaderos privados</strong>, reservas mensuales, geolacalización, varios métodos de pagos.</small></p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3 [@slideInLeft]> 
+          <img src="assets/negro120x120.png">
+        </ion-col>
+        <ion-col col-9 class="paddingCol" [@slideInRight]>
+          <p><small><strong>Parqueaderos públicos premium</strong>, reservas por horas, tasa de ocupación en tiempo real, geolocalización, pago
+          con tarjeta de crédito.</small></p>
+        </ion-col>
+      </ion-row>
+      <button ion-button round large outline color="light" (click)="nextSlide()" [@fadeIn]>
+        Siguiente
+      </button>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="spacer"></div>
+      <img src="assets/filter-outline.svg">
+      <div class="spacer"></div>
+      <img src="assets/parking_filter_icon.png" class="customImg">
+      <div class="spacer"></div>
+      <div padding>
+        <h2>Filtro</h2>
+        <p>En la esquina superior derecha puedes encontrar el botón de filtro, te puede ser muy útil para que en el mapa solo
+          aparezcan los marcadores de parqueaderos que estás buscando.</p>
+      </div>
+      <br>
+      <ion-fab top left>
+        <button ion-fab mini color="light" (click)="prevSlide()"><ion-icon name="arrow-round-back"></ion-icon></button>
+      </ion-fab>
+      <button ion-button round large outline color="light" (click)="nextSlide()">
+        Siguiente
+      </button>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="spacer"></div>
+      <img src="assets/touch-screen.svg" >
+      <div class="spacer"></div>
+      <h2 >¿Qué tipo de parqueadero buscas?</h2>
+      <div class="spacer"></div>
+      <ion-row>
+        <ion-col >
+          <div [ngClass]="blueMarkerClass" tappable (click)="changeSelectMarker('blue')">
+            <img src="assets/azul120x120.png">
+            <br>
+            <p><strong>Privados</strong></p>
+          </div>
+        </ion-col>
+        <ion-col >
+          <div [ngClass]="blackMarkerClass" tappable (click)="changeSelectMarker('black')">
+            <img src="assets/negro120x120.png">
+            <br>
+            <p><strong>Públicos</strong></p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <div class="spacer"></div>
+      <ion-fab top left>
+        <button ion-fab mini color="light" (click)="prevSlide()"><ion-icon name="arrow-round-back"></ion-icon></button>
+      </ion-fab>
+      <button ion-button round large outline color="light"
+      [disabled]="blackMarkerClass.disableMarker && blueMarkerClass.disableMarker">
+        Terminar
+      </button>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

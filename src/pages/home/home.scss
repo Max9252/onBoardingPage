@@ -1,0 +1,48 @@
+page-home {
+
+    .swiper-slide img{
+        width: 30%;
+    }
+
+    .paddingCol {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    .customImg {
+        width: 90% !important;
+    }
+
+    p {
+        color:white;
+        margin-top: 0;
+    }
+
+    h2 {
+        color: white;
+        margin-top: 0;
+    }
+
+    .spacer {
+        height: 20px;
+    }
+
+    .disableMarker {
+        opacity: 0.5;
+    }
+
+    .header-tutorial {
+        height: 30%;
+        text-align: center;
+        width: 100%;
+
+        img {
+            margin-top: 3rem;
+        }
+    }
+
+    .slide-zoom {
+        height: 100%;
+    }
+
+}
