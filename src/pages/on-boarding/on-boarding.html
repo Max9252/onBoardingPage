@@ -17,7 +17,7 @@
 
     <ion-slide>
       <div class="diag" style="background: url('assets/whitebg.svg') no-repeat" >
-        <ion-img src="assets/images/freemium.png" [@animateSlide]='state' (@animateSlide.done)="animationDone()"></ion-img>
+        <ion-img src="assets/images/freemium.png" [@animateSlide]='state' (@animateSlide.done)="animationDone()" class="responsive"></ion-img>
       </div>
       <div [@animateSlide]='state' >
         <h2>Parqueadero FREEMIUM</h2>

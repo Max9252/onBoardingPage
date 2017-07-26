@@ -39,9 +39,9 @@
       overflow: hidden !important;
  }
 ion-img {
-  margin-top: 13% !important;
-  width: 256px;
-  height: 256px;
+  margin-top: 10% !important;
+  width: 215px;
+  height: 215px;
   display: block;
   margin: 0 auto;
   z-index: 100;
@@ -49,8 +49,8 @@ ion-img {
 }
 
 ion-img.img-loaded img {
-  width: 256px;
-  height: 256px;
+  width: 215px;
+  height: 215px;
   margin: 0 auto;
   z-index: 100;
   position: relative;
@@ -69,7 +69,7 @@ ion-slides{
   z-index: 1;
   width: 100%;
   top: 0;
-  height: 66%;
+  height: 70%;
 }
 
 ion-icon {
@@ -100,7 +100,7 @@ p {
 
 #skip {
   position: absolute;
-  bottom: 20px;
+  bottom: .5em;
   width: 100%;
   background: none !important;
   text-align: center;
